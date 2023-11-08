@@ -1,0 +1,23 @@
+{
+  "name": "litoral-api",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "La API para la aplicación de gestión de restaurante",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "javascript"
+  ],
+  "author": "Ricardo Corrales",
+  "license": "ISC",
+  "devDependencies": {
+    "standard": "17.1.0"
+  },
+  "eslintConfig": {
+    "extends": ["standard"]
+  }
+}

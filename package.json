@@ -5,7 +5,7 @@
   "description": "La API para la aplicación de gestión de restaurante",
   "main": "index.js",
   "scripts": {
-    "start": "node --watch index.js",
+    "start": "node --watch src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

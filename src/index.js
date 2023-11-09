@@ -1,6 +1,7 @@
 import express from 'express'
 import crypto from 'node:crypto'
 
+import { validateCustomer, validatePartialCustomer } from './schemas/customer.js'
 import customers from './customer.json' assert { type: 'json' }
 
 const app = express()
@@ -29,29 +30,48 @@ app.get('/customers/:id', (req, res) => {
 })
 
 app.post('/customers', (req, res) => {
-  const {
-    first_name,
-    second_name,
-    last_name,
-    email,
-    password,
-    address,
-    phone_number
-  } = req.body
+  const ACCEPTED_ORIGINS = [
+    'http://localhost:8080',
+    'http://localhost:1234',
+    'http://litoral-restaurant.vercel.app',
+  ]
+  const origin = req.header('origin')
+
+  if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:8080')
+  }
+  
+  const result = validateCustomer(req.body)
+
+  if (result.error) {
+    return res.status(400).json({error: JSON.parse(result.error.message)})
+  }
 
   const newCustomer = {
     id: crypto.randomUUID(),
-    first_name,
-    second_name: second_name ?? '',
-    last_name,
-    email,
-    password,
-    address,
-    phone_number
+    ...result.data
   }
 
   customers.push(newCustomer)
   res.status(201).json(newCustomer)
+})
+
+app.patch('/customers/:id', (req, res) => {
+  const result = validatePartialCustomer(req.body)
+
+  if( result.error ) return res.status(400).json(result.error.message)
+
+  const { id } = req.params
+  const customerIndex = customers.findIndex(customer => customer.id === id)
+  if (customerIndex === -1) return res.status(404).json({message: 'Customer Not Found!'})
+
+  const updatedCustomer = {
+    ...customers[customerIndex],
+    ...result.data
+  }
+  customers[customerIndex] = updatedCustomer
+
+  res.json(updatedCustomer)
 })
 
 app.use((req, res) => {

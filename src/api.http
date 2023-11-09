@@ -15,9 +15,26 @@ Content-Type: application/json
   "second_name": "Ajelandro",
   "last_name": "Corrales",
   "email": "daniel@gmail.com",
-  "password": "admin",
-  "phone_number": "12345678",
+  "password": "admin123",
+  "phone_number": 12345678,
   "address": "Villanueva"
 }
-### Not Found
-GET http://localhost:1234/asdad
+### Crear un customer con errores
+POST http://localhost:1234/customers
+Content-Type: application/json
+
+{
+  "first_name": "Daniel",
+  "second_name": "Ajelandro",
+  "last_name": "Corrales",
+  "password": "admin",
+  "phone_number": 12345678,
+  "address": "Villanueva"
+}
+### Modificar un customer
+PATCH http://localhost:1234/customers/1
+Content-Type: application/json
+
+{
+  "first_name": "Ricardo"
+}

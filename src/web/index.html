@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customers</title>
+  <script type="module">
+    fetch('http://localhost:1234/customers')
+      .then(res => res.json())
+      .then(customers => {
+        const html = customers.map(customer => (
+          `
+          <article data-id="${customer.id}" >
+            <h2>${customer.first_name}</h2>
+            <p>${customer.email}</p>
+          </article>
+          `
+        )).join('')
+        document.querySelector('main').innerHTML = html
+      })
+  </script>
+</head>
+<body>
+  <main></main>
+</body>
+</html>

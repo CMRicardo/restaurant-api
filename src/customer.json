@@ -6,7 +6,7 @@
     "last_name": "Corrales",
     "email": "ricardo@gmail.com",
     "password": "admin",
-    "phone_number": "12345678",
+    "phone_number": 12345678,
     "address": "Villanueva"
   },
   {
@@ -16,7 +16,7 @@
     "last_name": "Soler",
     "email": "emilsson@gmail.com",
     "password": "admin",
-    "phone_number": "12345678",
+    "phone_number": 12345678,
     "address": "San Pedro Sula"
   },
   {
@@ -26,7 +26,7 @@
     "last_name": "Ramos",
     "email": "brian@gmail.com",
     "password": "admin",
-    "phone_number": "12345678",
+    "phone_number": 12345678,
     "address": "San Pedro Sula"
   }
 ]

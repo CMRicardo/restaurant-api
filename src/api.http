@@ -1,3 +1,23 @@
+### Home
 GET http://localhost:1234
+### Customers
+GET http://localhost:1234/customers
+### Customers by ID
+GET http://localhost:1234/customers/63e0ff71-e52f-476e-a7a5-50d8270e3d70
+### Customers by address
+GET http://localhost:1234/customers?address=Villanueva
+### Crear un customer
+POST http://localhost:1234/customers
+Content-Type: application/json
+
+{
+  "first_name": "Daniel",
+  "second_name": "Ajelandro",
+  "last_name": "Corrales",
+  "email": "daniel@gmail.com",
+  "password": "admin",
+  "phone_number": "12345678",
+  "address": "Villanueva"
+}
 ### Not Found
 GET http://localhost:1234/asdad

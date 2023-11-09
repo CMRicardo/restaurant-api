@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "first_name": "Ricardo",
+    "second_name": "Alberto",
+    "last_name": "Corrales",
+    "email": "ricardo@gmail.com",
+    "password": "admin",
+    "phone_number": "12345678",
+    "address": "Villanueva"
+  },
+  {
+    "id": "2",
+    "first_name": "Emilsson",
+    "second_name": "Denir",
+    "last_name": "Soler",
+    "email": "emilsson@gmail.com",
+    "password": "admin",
+    "phone_number": "12345678",
+    "address": "San Pedro Sula"
+  },
+  {
+    "id": "3",
+    "first_name": "Brian",
+    "second_name": "Josue",
+    "last_name": "Ramos",
+    "email": "brian@gmail.com",
+    "password": "admin",
+    "phone_number": "12345678",
+    "address": "San Pedro Sula"
+  }
+]

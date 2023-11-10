@@ -1,6 +1,6 @@
 import express from 'express'
 
-import { moviesRouter } from './routes/customers.js'
+import { customerRouter } from './routes/customers.js'
 import { corsMiddleware } from './middlewares/cors.js'
 
 const app = express()
@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
   res.send({ message: 'Hola mundo' })
 })
 
-app.use('/customers', moviesRouter)
+app.use('/customers', customerRouter)
 
 app.use((req, res) => {
   res.status(404).send('404 - Not Found')

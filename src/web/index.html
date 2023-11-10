@@ -13,10 +13,25 @@
           <article data-id="${customer.id}" >
             <h2>${customer.first_name}</h2>
             <p>${customer.email}</p>
+            <button>Eliminar</button>
           </article>
           `
         )).join('')
         document.querySelector('main').innerHTML = html
+        document.addEventListener('click', e => {
+          if(e.target.matches('button')) {
+            const article = e.target.closest('article')
+            const id = article.dataset.id
+
+            fetch(`http://localhost:1234/customers/${id}`, {method: 'DELETE'})
+              .then(res => {
+                if(res.ok) {
+                  article.remove()
+                }
+              })
+            
+          }
+        })
       })
   </script>
 </head>

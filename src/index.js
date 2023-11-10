@@ -1,11 +1,28 @@
 import express from 'express'
 import crypto from 'node:crypto'
+import cors from 'cors'
 
 import { validateCustomer, validatePartialCustomer } from './schemas/customer.js'
 import customers from './customer.json' assert { type: 'json' }
 
 const app = express()
 app.use(express.json())
+app.use(cors({
+  origin: (origin, callback) => {
+    const ACCEPTED_ORIGINS = [
+      'http://localhost:8080',
+      'http://localhost:1234',
+      'http://litoral-restaurant.vercel.app',
+    ]
+    if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
+      return callback(null, true) 
+    }
+
+    if (!origin) return callback(null, true)
+
+    return callback(new Error('Not allowed by CORS'))
+  }
+}))
 app.disable('x-powered-by')
 
 app.get('/', (req, res) => {
@@ -13,6 +30,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/customers', (req, res) => {
+  const origin = req.header('origin')
+
+  if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
+    res.header('Access-Control-Allow-Origin', origin)
+  }
   const { address } = req.query
   if (address) {
     const filteredCustomers = customers.filter(customer => customer.address === address)
@@ -29,18 +51,21 @@ app.get('/customers/:id', (req, res) => {
   res.status(404).send({message: '404 - Customer Not Found'})
 })
 
-app.post('/customers', (req, res) => {
-  const ACCEPTED_ORIGINS = [
-    'http://localhost:8080',
-    'http://localhost:1234',
-    'http://litoral-restaurant.vercel.app',
-  ]
+app.delete('/customers/:id', (req, res) => {
   const origin = req.header('origin')
 
   if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:8080')
+    res.header('Access-Control-Allow-Origin', origin)
   }
-  
+  const { id } = req.params
+  const customerIndex = customers.findIndex(customer => customer.id === id)
+  if (customerIndex === -1) return res.status(404).json({message: 'Customer Not Found'})
+
+  customers.splice(customerIndex, 1)
+  return res.json({message: 'Customer deleted!'})
+})
+
+app.post('/customers', (req, res) => {  
   const result = validateCustomer(req.body)
 
   if (result.error) {
@@ -74,11 +99,20 @@ app.patch('/customers/:id', (req, res) => {
   res.json(updatedCustomer)
 })
 
+app.options('/customers/:id', (req, res) => {
+  const origin = req.header('origin')
+  if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
+    res.header('Access-Control-Allow-Origin', origin)
+    res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PATCH, PUT')
+  }
+  res.send()
+})
+
 app.use((req, res) => {
   res.status(404).send('404 - Not Found')
 })
 
 const PORT = process.env.PORT || 1234
 app.listen(PORT, () => {
-  console.log(`Listening on http://localhost:${PORT}`)
+  console.log(`Listening on port: ${PORT}`)
 })

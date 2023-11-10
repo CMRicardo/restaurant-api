@@ -3,7 +3,7 @@ GET http://localhost:1234
 ### Customers
 GET http://localhost:1234/customers
 ### Customers by ID
-GET http://localhost:1234/customers/63e0ff71-e52f-476e-a7a5-50d8270e3d70
+GET http://localhost:1234/customers/1
 ### Customers by address
 GET http://localhost:1234/customers?address=Villanueva
 ### Crear un customer

@@ -23,18 +23,14 @@ app.use(cors({
     return callback(new Error('Not allowed by CORS'))
   }
 }))
+
 app.disable('x-powered-by')
 
 app.get('/', (req, res) => {
-  res.send({message: 'Hola mundo'})
+  res.send({ message: 'Hola mundo' })
 })
 
 app.get('/customers', (req, res) => {
-  const origin = req.header('origin')
-
-  if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
-    res.header('Access-Control-Allow-Origin', origin)
-  }
   const { address } = req.query
   if (address) {
     const filteredCustomers = customers.filter(customer => customer.address === address)
@@ -52,11 +48,6 @@ app.get('/customers/:id', (req, res) => {
 })
 
 app.delete('/customers/:id', (req, res) => {
-  const origin = req.header('origin')
-
-  if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
-    res.header('Access-Control-Allow-Origin', origin)
-  }
   const { id } = req.params
   const customerIndex = customers.findIndex(customer => customer.id === id)
   if (customerIndex === -1) return res.status(404).json({message: 'Customer Not Found'})
@@ -97,15 +88,6 @@ app.patch('/customers/:id', (req, res) => {
   customers[customerIndex] = updatedCustomer
 
   res.json(updatedCustomer)
-})
-
-app.options('/customers/:id', (req, res) => {
-  const origin = req.header('origin')
-  if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
-    res.header('Access-Control-Allow-Origin', origin)
-    res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PATCH, PUT')
-  }
-  res.send()
 })
 
 app.use((req, res) => {

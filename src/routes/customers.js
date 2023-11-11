@@ -2,14 +2,16 @@ import { Router } from 'express'
 
 import { CustomerController } from '../controllers/customers.js'
 
-export const customerRouter = Router()
+export const createCustomerRouter = ({ customerModel }) => {
+  const customerController = new CustomerController({ customerModel })
 
-customerRouter.get('/', CustomerController.getAll)
+  const customerRouter = Router()
 
-customerRouter.get('/:id', CustomerController.getById)
+  customerRouter.get('/', customerController.getAll)
+  customerRouter.get('/:id', customerController.getById)
+  customerRouter.delete('/:id', customerController.delete)
+  customerRouter.post('/', customerController.create)
+  customerRouter.patch('/:id', customerController.update)
 
-customerRouter.delete('/:id', CustomerController.delete)
-
-customerRouter.post('/', CustomerController.create)
-
-customerRouter.patch('/:id', CustomerController.update)
+  return customerRouter
+}

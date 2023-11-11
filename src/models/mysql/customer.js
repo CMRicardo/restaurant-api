@@ -1,14 +1,15 @@
 import mysql from 'mysql2/promise'
 
-const config = {
+const DEFAULT_CONFIG = {
   host: 'localhost',
   port: 3306,
   user: 'root',
   password: '123456',
   database: 'restaurant'
 }
+const connectionString = process.env.DATABASE_URL ?? DEFAULT_CONFIG
 
-const connection = await mysql.createConnection(config)
+const connection = await mysql.createConnection(connectionString)
 
 export class CustomerModel {
   static async getAll ({ address }) {

@@ -1,51 +1,55 @@
-import { CustomerModel } from '../models/local-file-system/customer.js'
+// import { CustomerModel } from '../models/local-file-system/customer.js'
 // import { CustomerModel } from '../models/mysql/customer.js'
 import { validateCustomer, validatePartialCustomer } from '../schemas/customer.js'
 
 export class CustomerController {
-  static async getAll (req, res) {
+  constructor ({ customerModel }) {
+    this.customerModel = customerModel
+  }
+
+  getAll = async (req, res) => {
     const { address } = req.query
-    const customers = await CustomerModel.getAll({ address })
+    const customers = await this.customerModel.getAll({ address })
 
     res.json(customers)
   }
 
-  static async getById (req, res) {
+  getById = async (req, res) => {
     const { id } = req.params
-    const customer = await CustomerModel.getById({ id })
+    const customer = await this.customerModel.getById({ id })
     if (customer) return res.send(customer)
 
     res.status(404).send({ message: '404 - Customer Not Found' })
   }
 
-  static async create (req, res) {
+  create = async (req, res) => {
     const result = validateCustomer(req.body)
 
     if (result.error) {
       return res.status(400).json({ error: JSON.parse(result.error.message) })
     }
 
-    const newCustomer = await CustomerModel.create({ input: result.data })
+    const newCustomer = await this.customerModel.create({ input: result.data })
     res.status(201).json(newCustomer)
   }
 
-  static async delete (req, res) {
+  delete = async (req, res) => {
     const { id } = req.params
-    const result = await CustomerModel.delete({ id })
+    const result = await this.customerModel.delete({ id })
     if (!result) {
       return res.status(404).json({ message: 'Customer Not Found!' })
     }
     return res.json({ message: 'Customer deleted!' })
   }
 
-  static async update (req, res) {
+  update = async (req, res) => {
     const result = validatePartialCustomer(req.body)
 
     if (result.error) return res.status(400).json(result.error.message)
 
     const { id } = req.params
 
-    const updatedCustomer = await CustomerModel.update({ id, input: result.data })
+    const updatedCustomer = await this.customerModel.update({ id, input: result.data })
 
     res.json(updatedCustomer)
   }

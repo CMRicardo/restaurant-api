@@ -5,7 +5,7 @@
   "description": "La API para la aplicación de gestión de restaurante",
   "main": "index.js",
   "scripts": {
-    "start": "npm run start:local",
+    "start": "npm run start:mysql",
     "start:mysql": "node --watch src/server-mysql.js",
     "start:local": "node --watch src/server-local.js",
     "test": "echo \"Error: no test specified\" && exit 1"

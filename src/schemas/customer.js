@@ -1,20 +1,21 @@
 import { z } from 'zod'
 
 const customerSchema = z.object({
-  first_name: z.string({
+  firstName: z.string({
     required_error: 'First name is required'
   }),
-  second_name: z.string().optional(),
-  last_name: z.string({
+  secondName: z.string().optional(),
+  lastName: z.string({
     required_error: 'Last name is required'
   }),
   email: z.string({
     required_error: 'Email is required'
   }),
   password: z.string().min(6),
-  phone_number: z.number({
+  phoneNumber: z.number({
     required_error: 'Phone number is required'
-  }).int().min(1111_1111)
+  }).int().min(1111_1111),
+  address: z.string().min(10)
 })
 
 export const validateCustomer = (object) => {

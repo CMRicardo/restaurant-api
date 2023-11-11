@@ -3,7 +3,7 @@ GET http://localhost:1234
 ### Customers
 GET http://localhost:1234/customers
 ### Customers by ID
-GET http://localhost:1234/customers/1
+GET http://localhost:1234/customers/e1520fba-80af-11ee-bfd1-900f0c66a857
 ### Customers by address
 GET http://localhost:1234/customers?address=Villanueva
 ### Crear un customer
@@ -11,12 +11,12 @@ POST http://localhost:1234/customers
 Content-Type: application/json
 
 {
-  "first_name": "Daniel",
-  "second_name": "Ajelandro",
-  "last_name": "Corrales",
+  "firstName": "Daniel",
+  "secondName": "Ajelandro",
+  "lastName": "Corrales",
   "email": "daniel@gmail.com",
   "password": "admin123",
-  "phone_number": 12345678,
+  "phoneNumber": 12345678,
   "address": "Villanueva"
 }
 ### Crear un customer con errores
@@ -24,20 +24,21 @@ POST http://localhost:1234/customers
 Content-Type: application/json
 
 {
-  "first_name": "Daniel",
-  "second_name": "Ajelandro",
-  "last_name": "Corrales",
-  "password": "admin",
-  "phone_number": 12345678,
-  "address": "Villanueva"
+  "firstName": "Brian",
+  "secondName": "Josue",
+  "lastName": "Ramos",
+  "email": "brian@email.com",
+  "password": "admin123",
+  "phoneNumber": 12345678,
+  "address": "San Pedro Sula"
 }
 ### Modificar un customer
-PATCH http://localhost:1234/customers/1
+PATCH http://localhost:1234/customers/1e61a006-80db-11ee-a5a1-900f0c66a857
 Content-Type: application/json
 
 {
-  "first_name": "Ricardo"
+  "firstName": "Daniel"
 }
 
 ### Borrar un customer
-DELETE  http://localhost:1234/customers/3ae244d5-df6a-46f4-b1c7-d975bc1a0680
+DELETE  http://localhost:1234/customers/8c424794-80bc-11ee-bfd1-900f0c66a857

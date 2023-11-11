@@ -112,18 +112,22 @@ export class CustomerModel {
       address
     } = updatedCustomer
 
-    await connection.query(`
-      UPDATE customer SET
-        firstName = ?,
-        secondName = ?,
-        lastName = ?,
-        email = ?,
-        password = ?,
-        phoneNumber = ?,
-        address = ?
-      WHERE id = UUID_TO_BIN(?);
-    `, [firstName, secondName, lastName, email, password, phoneNumber, address, id])
+    try {
+      await connection.query(`
+        UPDATE customer SET
+          firstName = ?,
+          secondName = ?,
+          lastName = ?,
+          email = ?,
+          password = ?,
+          phoneNumber = ?,
+          address = ?
+        WHERE id = UUID_TO_BIN(?);
+      `, [firstName, secondName, lastName, email, password, phoneNumber, address, id])
 
-    return updatedCustomer
+      return updatedCustomer
+    } catch (error) {
+      return false
+    }
   }
 }

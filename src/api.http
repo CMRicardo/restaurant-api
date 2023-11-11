@@ -41,4 +41,4 @@ Content-Type: application/json
 }
 
 ### Borrar un customer
-DELETE  http://localhost:1234/customers/8c424794-80bc-11ee-bfd1-900f0c66a857
+DELETE  http://localhost:1234/customers/75e35f85-1a4c-40f3-9de3-3e1c84e55e53

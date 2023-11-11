@@ -1,4 +1,4 @@
-import { CustomerModel } from '../models/customer.js'
+import { CustomerModel } from '../models/local-file-system/customer.js'
 import { validateCustomer, validatePartialCustomer } from '../schemas/customer.js'
 
 export class CustomerController {

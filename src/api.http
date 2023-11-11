@@ -38,3 +38,6 @@ Content-Type: application/json
 {
   "first_name": "Ricardo"
 }
+
+### Borrar un customer
+DELETE  http://localhost:1234/customers/3ae244d5-df6a-46f4-b1c7-d975bc1a0680

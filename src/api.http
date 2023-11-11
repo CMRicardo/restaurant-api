@@ -11,13 +11,13 @@ POST http://localhost:1234/customers
 Content-Type: application/json
 
 {
-  "firstName": "Daniel",
-  "secondName": "Ajelandro",
-  "lastName": "Corrales",
-  "email": "daniel@gmail.com",
+  "firstName": "Brian",
+  "secondName": "Josue",
+  "lastName": "Ramos",
+  "email": "brian@gmail.com",
   "password": "admin123",
   "phoneNumber": 12345678,
-  "address": "Villanueva"
+  "address": "San Pedro Sula"
 }
 ### Crear un customer con errores
 POST http://localhost:1234/customers
@@ -33,12 +33,12 @@ Content-Type: application/json
   "address": "San Pedro Sula"
 }
 ### Modificar un customer
-PATCH http://localhost:1234/customers/1e61a006-80db-11ee-a5a1-900f0c66a857
+PATCH http://localhost:1234/customers/853e982c-80ec-11ee-b53e-eaf15ba8dff1
 Content-Type: application/json
 
 {
-  "firstName": "Daniel"
+  "firstName": "Brayan"
 }
 
 ### Borrar un customer
-DELETE  http://localhost:1234/customers/75e35f85-1a4c-40f3-9de3-3e1c84e55e53
+DELETE  http://localhost:1234/customers/853e982c-80ec-11ee-b53e-eaf15ba8dff1

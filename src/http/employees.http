@@ -1,1 +1,43 @@
+# Get all employees
 GET http://localhost:1234/employees
+### Get employee by ID
+GET http://localhost:1234/employees/1
+### Create employee
+POST http://localhost:1234/employees
+Content-Type: application/json
+
+{
+  "employeeType": "4",
+  "firstName": "Daniel",
+  "secondName": "Alejandro",
+  "lastName": "Corrales",
+  "idNumber": "0511201103483",
+  "phoneNumber": 12345678,
+  "email": "daniel@litoral.com",
+  "profilePictureUrl": "https://randomuser.me/api/portraits/men/80.jpg"
+}
+
+### Create employee with errors
+POST http://localhost:1234/employees
+Content-Type: application/json
+
+{
+  "employeeType": "4",
+  "secondName": "Alejandro",
+  "lastName": "Corrales",
+  "idNumber": "0511201103483",
+  "phoneNumber": 12345678,
+  "email": "daniel@litoral.com",
+  "profilePictureUrl": "https://randomuser.me/api/portraits/men/80.jpg"
+}
+
+### Update employee
+PATCH http://localhost:1234/employees/1
+Content-Type: application/json
+
+{
+  "employeeType": "3"
+}
+
+### Delete employee
+DELETE http://localhost:1234/employees/1

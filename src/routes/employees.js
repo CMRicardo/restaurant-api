@@ -6,12 +6,10 @@ export const createEmployeeRouter = ({ employeeModel }) => {
   const employeeController = new EmployeeController({ employeeModel })
 
   employeeRouter.get('/', employeeController.getAll)
-  employeeRouter.get('/:id', (req, res) => {
-    res.json({ message: 'Employees works!' })
-  })
-  employeeRouter.post('/:id', (req, res) => {
-    res.json({ message: 'Creado!' })
-  })
+  employeeRouter.get('/:id', employeeController.getById)
+  employeeRouter.post('/', employeeController.create)
+  employeeRouter.patch('/:id', employeeController.update)
+  employeeRouter.delete('/:id', employeeController.delete)
 
   return employeeRouter
 }

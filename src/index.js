@@ -5,7 +5,7 @@ import { createCustomerRouter } from './routes/customers.js'
 import { createEmployeeRouter } from './routes/employees.js'
 import { corsMiddleware } from './middlewares/cors.js'
 
-export const createApp = ({ customerModel }) => {
+export const createApp = ({ customerModel, employeeModel }) => {
   const app = express()
   app.use(express.json())
   app.use(corsMiddleware())
@@ -17,7 +17,7 @@ export const createApp = ({ customerModel }) => {
   })
 
   app.use('/customers', createCustomerRouter({ customerModel }))
-  app.use('/employees', createEmployeeRouter())
+  app.use('/employees', createEmployeeRouter({ employeeModel }))
 
   app.use((req, res) => {
     res.status(404).send('404 - Not Found')

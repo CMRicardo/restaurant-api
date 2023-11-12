@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto'
 import { readJSON } from '../../utils/read-json.js'
 
-const customers = readJSON('../customers.json')
+const customers = readJSON('./json/customers.json')
 
 export class CustomerModel {
   static async getAll ({ address }) {

@@ -1,7 +1,9 @@
 import express from 'express'
-import { createCustomerRouter } from './routes/customers.js'
-import { corsMiddleware } from './middlewares/cors.js'
 import 'dotenv/config.js'
+
+import { createCustomerRouter } from './routes/customers.js'
+import { createEmployeeRouter } from './routes/employees.js'
+import { corsMiddleware } from './middlewares/cors.js'
 
 export const createApp = ({ customerModel }) => {
   const app = express()
@@ -15,6 +17,7 @@ export const createApp = ({ customerModel }) => {
   })
 
   app.use('/customers', createCustomerRouter({ customerModel }))
+  app.use('/employees', createEmployeeRouter())
 
   app.use((req, res) => {
     res.status(404).send('404 - Not Found')

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "type": "Gerente"
+  },
+  {
+    "id": "2",
+    "type": "Supervisor"
+  },
+  {
+    "id": "3",
+    "type": "Vendedor"
+  }
+]

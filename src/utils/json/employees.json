@@ -1,0 +1,35 @@
+[
+  {
+    "id": "1",
+    "employeeType": "1",
+    "firstName": "Ricardo",
+    "secondName": "Alberto",
+    "lastName": "Corrales",
+    "idNumber": "0801200203483",
+    "phoneNumber": 12345678,
+    "email": "ricardo@litoral.com",
+    "profilePictureUrl": "https://randomuser.me/api/portraits/men/77.jpg"
+  },
+  {
+    "id": "2",
+    "employeeType": "2",
+    "firstName": "Emilsson",
+    "secondName": "Denir",
+    "lastName": "Soler",
+    "idNumber": "0801199503483",
+    "phoneNumber": 12345678,
+    "email": "emilsson@litoral.com",
+    "profilePictureUrl": "https://randomuser.me/api/portraits/men/78.jpg"
+  },
+  {
+    "id": "3",
+    "employeeType": "3",
+    "firstName": "Brian",
+    "secondName": "Josue",
+    "lastName": "Ramos",
+    "idNumber": "0801199603483",
+    "phoneNumber": 12345678,
+    "email": "brian@litoral.com",
+    "profilePictureUrl": "https://randomuser.me/api/portraits/men/79.jpg"
+  }
+]

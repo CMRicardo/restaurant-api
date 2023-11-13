@@ -7,8 +7,9 @@ const EmployeeSchema = z.object({
   lastName: z.string(),
   idNumber: z.string().length(13),
   phoneNumber: z.number().min(11111111),
-  email: z.string(),
-  profilePictureUrl: z.string().url()
+  email: z.string().email(),
+  profilePictureUrl: z.string().url(),
+  address: z.string()
 })
 
 export const validateEmployee = (object) => {

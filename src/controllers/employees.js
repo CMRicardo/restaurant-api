@@ -6,7 +6,8 @@ export class EmployeeController {
   }
 
   getAll = async (req, res) => {
-    const employees = await this.employeeModel.getAll()
+    const { type } = req.query
+    const employees = await this.employeeModel.getAll({ type })
     res.json(employees)
   }
 
@@ -23,8 +24,8 @@ export class EmployeeController {
     if (result.error) return res.status(400).json({ error: JSON.parse(result.error.message) })
 
     const newEmployee = await this.employeeModel.create({ input: result.data })
-
-    res.status(201).json(newEmployee)
+    if (!newEmployee) return res.status(400).json({ message: 'Error Creating Employee' })
+    return res.status(201).json(newEmployee)
   }
 
   update = async (req, res) => {

@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "employeeType": "1",
+    "employeeType": "Gerente",
     "firstName": "Ricardo",
     "secondName": "Alberto",
     "lastName": "Corrales",
@@ -12,7 +12,7 @@
   },
   {
     "id": "2",
-    "employeeType": "2",
+    "employeeType": "Supervisor",
     "firstName": "Emilsson",
     "secondName": "Denir",
     "lastName": "Soler",
@@ -23,7 +23,7 @@
   },
   {
     "id": "3",
-    "employeeType": "3",
+    "employeeType": "Vendedor",
     "firstName": "Brian",
     "secondName": "Josue",
     "lastName": "Ramos",

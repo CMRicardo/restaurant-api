@@ -78,7 +78,7 @@ export class CustomerModel {
           (UUID_TO_BIN(?), ?, ?, ?, ?, ?, ?, ?);
       `, [uuid, firstName, secondName, lastName, email, password, phoneNumber, address])
     } catch (error) {
-      throw new Error('Error creating customer')
+      return false
     }
 
     const newCustomer = await this.getById({ id: uuid })

@@ -4,7 +4,11 @@ import { randomUUID } from 'node:crypto'
 const employees = readJSON('./json/employees.json')
 
 export class EmployeeModel {
-  static async getAll () {
+  static async getAll ({ type }) {
+    if (type) {
+      const lowerCaseType = type.toLowerCase()
+      return employees.filter(employee => employee.employeeType.toLowerCase() === lowerCaseType)
+    }
     return employees
   }
 

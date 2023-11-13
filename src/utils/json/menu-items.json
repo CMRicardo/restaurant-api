@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "category": "Plato fuerte",
+    "name": "Hamburguesa",
+    "description": "Lorem ipsum dolor sit amed",
+    "price": 9.99,
+    "imageUrl": "https://images.pexels.com/photos/18867543/pexels-photo-18867543/free-photo-of-burger-served-in-a-restaurant.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": "2",
+    "category": "Entrada",
+    "name": "Nachos",
+    "description": "A popular Mexican dish consisting of heated tortilla chips covered with melted cheese, often served as a snack or appetizer with salsa, guacamole, or sour cream.",
+    "price": 6.99,
+    "imageUrl": "https://media.istockphoto.com/id/463751133/photo/nachos.jpg?b=1&s=612x612&w=0&k=20&c=pm1voV0xfzx8LfFmOaGyXZXhmz5_547FRFM5G8H47eo="
+  },
+  {
+    "id": "3",
+    "category": "Postre",
+    "name": "Tiramisu",
+    "description": "A classic Italian dessert made of ladyfingers dipped in coffee, layered with a whipped mixture of eggs, sugar, and mascarpone cheese, and flavored with cocoa.",
+    "price": 6.99,
+    "imageUrl": "https://media.istockphoto.com/id/1287210263/photo/tiramisu-coffee-flavoured-italian-dessert.jpg?b=1&s=612x612&w=0&k=20&c=Zuf6kGjPID4VEEX5Ceu3pDEMhtGqBl62H4q11lHxf-E="
+  },
+  {
+    "id": "4",
+    "category": "Bebida",
+    "name": "Mojito",
+    "description": "A refreshing Cuban cocktail made of five ingredients: white rum, sugar, lime juice, soda water, and mint.",
+    "price": 7.99,
+    "imageUrl": "https://media.istockphoto.com/id/105597995/photo/mojito-cocktail.jpg?b=1&s=612x612&w=0&k=20&c=-ab7nuB0EO84QexZfvrx-qXNe3a1zmiKyul3yK-1ocI="
+  }
+]

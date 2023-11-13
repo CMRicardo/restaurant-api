@@ -1,0 +1,28 @@
+### Get all menuItems
+GET http://localhost:1234/menu-items
+### Get menuItems by category
+GET http://localhost:1234/menu-items?category=Entrada
+### Get menuItem by ID
+GET http://localhost:1234/menu-items/1
+### Create menuItem
+POST http://localhost:1234/menu-items
+Content-Type: application/json
+
+{
+  "category": "Plato fuerte",
+  "name": "Tacos",
+  "description": "A traditional Mexican dish composed of a corn or wheat tortilla folded or rolled around a filling, which can include beef, chicken, seafood, beans, vegetables, and cheese.",
+  "price": 10.99,
+  "imageUrl": "https://media.istockphoto.com/id/459396345/photo/taco.jpg?b=1&s=612x612&w=0&k=20&c=wDLMWoljNsyoKKYUYyMjSZxIJ5BaX0dKyAVIF4wueA4="
+}
+
+### Update menuItem
+PATCH http://localhost:1234/menu-items/1
+Content-Type: application/json
+
+{
+  "description": "Nothing more american than a burger!"
+}
+
+### Delete menuItem
+DELETE http://localhost:1234/menu-items/c087a077-3f9b-4eab-8d53-b9eb6c2c3a10

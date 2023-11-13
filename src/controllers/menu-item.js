@@ -23,6 +23,7 @@ export class MenuItemController {
     const result = validateMenuItem(req.body)
     if (result.error) return res.status(400).json({ error: JSON.parse(result.error.message) })
     const newMenuItem = await this.menuItemModel.create({ input: result.data })
+    if (!newMenuItem) return res.status(500).json({ message: 'Error creating menu item!' })
     return res.status(200).json(newMenuItem)
   }
 

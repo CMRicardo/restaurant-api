@@ -3,7 +3,7 @@ GET http://localhost:1234/menu-items
 ### Get menuItems by category
 GET http://localhost:1234/menu-items?category=Entrada
 ### Get menuItem by ID
-GET http://localhost:1234/menu-items/1
+GET http://localhost:1234/menu-items/4415894d-8276-11ee-8ddf-900f0c66a857
 ### Create menuItem
 POST http://localhost:1234/menu-items
 Content-Type: application/json
@@ -17,12 +17,12 @@ Content-Type: application/json
 }
 
 ### Update menuItem
-PATCH http://localhost:1234/menu-items/1
+PATCH http://localhost:1234/menu-items/c9dafc29-8271-11ee-8ddf-900f0c66a857
 Content-Type: application/json
 
 {
-  "description": "Nothing more american than a burger!"
+  "description": "Lorem ipsum"
 }
 
 ### Delete menuItem
-DELETE http://localhost:1234/menu-items/c087a077-3f9b-4eab-8d53-b9eb6c2c3a10
+DELETE http://localhost:1234/menu-items/f019708e-8279-11ee-8ddf-900f0c66a857

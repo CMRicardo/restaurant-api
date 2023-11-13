@@ -9,15 +9,19 @@ git clone https://github.com/CMRicardo/restaurant-api
 cd restaurant-api
 ```
 
-
 2. Instalar las dependencias de node:
 ``` sh
 npm install
 ```
 
-3. Levantar el servidor de desarrollo:
+3. Copiar el archivo .env-template en el archivo .env y llenar las variables de entorno
+``` sh
+cp .env-template .env
+```
+
+4. Levantar el servidor de desarrollo (node 18+):
 ``` sh
 npm start
 ```
 
-> Utilizamos `node --watch` que solo es compatible con la versión 18 o superior de node.
+> También es posible utilizar npm run start:local para utilizar la api con los archivos JSON locales.

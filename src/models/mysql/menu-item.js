@@ -5,7 +5,8 @@ const DEFAULT_CONFIG = {
   port: 3306,
   user: 'root',
   password: '123456',
-  database: 'restaurant'
+  database: 'restaurant',
+  decimalNumbers: true
 }
 const connectionString = process.env.DATABASE_URL ?? DEFAULT_CONFIG
 // const connectionString = DEFAULT_CONFIG

@@ -13,7 +13,7 @@ export class EmployeeModel {
   }
 
   static async getById ({ id }) {
-    return employees.filter(employee => employee.id === id)[0]
+    return employees.find(employee => employee.id === id)
   }
 
   static async create ({ input }) {

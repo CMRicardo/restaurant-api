@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1",
+    "seller": "Brian Ramos",
+    "sellerId": "1",
+    "date": "2023-11-14T15:54:04.000Z",
+    "items": [
+      {
+        "name": "Hamburguesa",
+        "price": 9.99,
+        "quantity": 1
+      },
+      {
+        "name": "Nachos",
+        "price": 6.99,
+        "quantity": 2
+      }
+    ],
+    "subtotal": 23.97,
+    "taxes": 3.60,
+    "total": 27.57
+  },
+  {
+    "id": "2",
+    "seller": "Alice Smith",
+    "sellerId": "2",
+    "date": "2023-11-15T12:30:22.000Z",
+    "items": [
+      {
+        "name": "Pizza",
+        "price": 12.99,
+        "quantity": 1
+      },
+      {
+        "name": "Salad",
+        "price": 8.49,
+        "quantity": 1
+      }
+    ],
+    "subtotal": 21.48,
+    "taxes": 4.07,
+    "total": 25.55
+  },
+  {
+    "id": "3",
+    "seller": "John Doe",
+    "sellerId": "3",
+    "date": "2023-11-16T18:15:10.000Z",
+    "items": [
+      {
+        "name": "Sushi Roll",
+        "price": 14.99,
+        "quantity": 2
+      },
+      {
+        "name": "Miso Soup",
+        "price": 5.99,
+        "quantity": 1
+      }
+    ],
+    "subtotal": 35.97,
+    "taxes": 6.83,
+    "total": 42.80
+  },
+  {
+    "id": "4",
+    "seller": "Emily Johnson",
+    "sellerId": "4",
+    "date": "2023-11-17T09:45:55.000Z",
+    "items": [
+      {
+        "name": "Chicken Wings",
+        "price": 10.99,
+        "quantity": 3
+      },
+      {
+        "name": "French Fries",
+        "price": 4.99,
+        "quantity": 2
+      }
+    ],
+    "subtotal": 37.94,
+    "taxes": 7.23,
+    "total": 45.17
+  }
+]

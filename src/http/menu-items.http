@@ -26,3 +26,16 @@ Content-Type: application/json
 
 ### Delete menuItem
 DELETE http://localhost:1234/menu-items/f019708e-8279-11ee-8ddf-900f0c66a857
+
+### Create menuItem
+POST http://localhost:1234/menu-items
+Content-Type: application/json
+
+{
+  "id": "3",
+  "category": "Postre",
+  "name": "Tiramisu",
+  "description": "A classic Italian dessert made of ladyfingers dipped in coffee, layered with a whipped mixture of eggs, sugar, and mascarpone cheese, and flavored with cocoa.",
+  "price": 6.99,
+  "imageUrl": "https://media.istockphoto.com/id/1287210263/photo/tiramisu-coffee-flavoured-italian-dessert.jpg?b=1&s=612x612&w=0&k=20&c=Zuf6kGjPID4VEEX5Ceu3pDEMhtGqBl62H4q11lHxf-E="
+}

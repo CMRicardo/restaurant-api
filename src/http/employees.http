@@ -1,7 +1,7 @@
 ### Get all employees
 GET http://localhost:1234/employees
 ### Get all employees by type
-GET http://localhost:1234/employees?type=gerente
+GET http://localhost:1234/employees?type=vendedor
 ### Get employee by ID
 GET http://localhost:1234/employees/3c0550fc-81c3-11ee-b53e-eaf15ba8dff1
 ### Create employee
@@ -9,15 +9,15 @@ POST http://localhost:1234/employees
 Content-Type: application/json
 
 {
-  "employeeType": "Gerente",
-  "firstName": "Ricardo",
-  "secondName": "Alberto",
-  "lastName": "Corrales",
-  "idNumber": "0801200203483",
+  "employeeType": "Vendedor",
+  "firstName": "Emily",
+  "secondName": "",
+  "lastName": "Johnson",
+  "idNumber": "0801200203580",
   "phoneNumber": 12345678,
-  "email": "ricardo@litoral.com",
-  "profilePictureUrl": "https://randomuser.me/api/portraits/men/81.jpg",
-  "address": "Villanueva"
+  "email": "emily@litoral.com",
+  "profilePictureUrl": "https://randomuser.me/api/portraits/women/81.jpg",
+  "address": "San Pedro Sula"
 }
 
 ### Create employee with errors

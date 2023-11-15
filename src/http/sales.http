@@ -1,7 +1,7 @@
 ### Get all sales
 GET http://localhost:1234/sales
 ### Get sales by seller
-GET http://localhost:1234/sales?seller=Michael Brown
+GET http://localhost:1234/sales?seller=Brian Ramos
 ### Get sales by id
 GET http://localhost:1234/sales/4
 ### Create a new sale

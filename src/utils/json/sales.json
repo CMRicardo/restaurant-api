@@ -69,18 +69,18 @@
     "date": "2023-11-17T09:45:55.000Z",
     "items": [
       {
-        "name": "Chicken Wings",
+        "name": "Tacos",
         "price": 10.99,
         "quantity": 3
       },
       {
-        "name": "French Fries",
-        "price": 4.99,
+        "name": "Tiramisu",
+        "price": 6.99,
         "quantity": 2
       }
     ],
-    "subtotal": 37.94,
-    "taxes": 7.23,
-    "total": 45.17
+    "subtotal": 46.95,
+    "taxes": 7.04,
+    "total": 53.99
   }
 ]

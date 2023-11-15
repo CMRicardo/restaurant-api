@@ -7,8 +7,8 @@ const DEFAULT_CONFIG = {
   password: '123456',
   database: 'restaurant'
 }
-const connectionString = process.env.DATABASE_URL ?? DEFAULT_CONFIG
-// const connectionString = DEFAULT_CONFIG
+// const connectionString = process.env.DATABASE_URL ?? DEFAULT_CONFIG
+const connectionString = DEFAULT_CONFIG
 
 const connection = await mysql.createConnection(connectionString)
 

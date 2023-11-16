@@ -13,7 +13,7 @@ const connectionString = DEFAULT_CONFIG
 const connection = await mysql.createConnection(connectionString)
 
 export class SalesModel {
-  static async getAll ({ seller }) {
+  static async #getBills () {
     const [bills] = await connection.query(`
       select
         bin_to_uuid(billC.id) as id,
@@ -27,6 +27,11 @@ export class SalesModel {
       join employee as emp
         on emp.id = billC.idEmployee;  
     `)
+    return bills
+  }
+
+  static async getAll ({ seller }) {
+    const bills = await this.#getBills()
 
     const sales = await Promise.all(bills.map(async bill => {
       const [items] = await connection.query(`

@@ -1,0 +1,97 @@
+[
+  {
+    "id": "1",
+    "idCustomer": "1",
+    "firstNameCustomer": "Brian",
+    "lastNameCustomer": "Ramos",
+    "items": [
+      {
+        "name": "Hamburguesa",
+        "price": 9.99,
+        "quantity": 1
+      },
+      {
+        "name": "Pastelito",
+        "price": 2.99,
+        "quantity": 2
+      }
+    ],
+    "subtotal": 15.97
+  },
+  {
+    "id": "2",
+    "idCustomer": "2",
+    "firstNameCustomer": "Emily",
+    "lastNameCustomer": "Smith",
+    "items": [
+      {
+        "name": "Pizza",
+        "price": 12.99,
+        "quantity": 1
+      },
+      {
+        "name": "Soda",
+        "price": 1.99,
+        "quantity": 3
+      }
+    ],
+    "subtotal": 18.96
+  },
+  {
+    "id": "3",
+    "idCustomer": "3",
+    "firstNameCustomer": "Michael",
+    "lastNameCustomer": "Johnson",
+    "items": [
+      {
+        "name": "Salad",
+        "price": 7.49,
+        "quantity": 1
+      },
+      {
+        "name": "Iced Tea",
+        "price": 1.49,
+        "quantity": 2
+      }
+    ],
+    "subtotal": 10.47
+  },
+  {
+    "id": "4",
+    "idCustomer": "4",
+    "firstNameCustomer": "Sophia",
+    "lastNameCustomer": "Martinez",
+    "items": [
+      {
+        "name": "Chicken Sandwich",
+        "price": 8.99,
+        "quantity": 2
+      },
+      {
+        "name": "Fries",
+        "price": 3.49,
+        "quantity": 1
+      }
+    ],
+    "subtotal": 21.47
+  },
+  {
+    "id": "5",
+    "idCustomer": "5",
+    "firstNameCustomer": "Daniel",
+    "lastNameCustomer": "Lee",
+    "items": [
+      {
+        "name": "Pasta",
+        "price": 11.99,
+        "quantity": 1
+      },
+      {
+        "name": "Garlic Bread",
+        "price": 4.99,
+        "quantity": 2
+      }
+    ],
+    "subtotal": 21.97
+  }
+]

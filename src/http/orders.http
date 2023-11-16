@@ -1,0 +1,29 @@
+### Get all orders
+GET http://localhost:1234/orders
+### Get all orders by customer id
+GET http://localhost:1234/orders?idCustomer=1
+### Get all orders by id
+GET http://localhost:1234/orders/4
+
+### Create an order
+POST http://localhost:1234/orders
+Content-Type: application/json
+
+{
+  "idCustomer": "1",
+  "firstNameCustomer": "Brian",
+  "lastNameCustomer": "Ramos",
+  "items": [
+    {
+      "name": "Hamburguesa",
+      "price": 9.99,
+      "quantity": 1
+    },
+    {
+      "name": "Refresco",
+      "price": 2.99,
+      "quantity": 1
+    }
+  ],
+  "subtotal": 12.98
+}

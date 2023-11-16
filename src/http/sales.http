@@ -3,7 +3,7 @@ GET http://localhost:1234/sales
 ### Get sales by seller
 GET http://localhost:1234/sales?seller=Brian Ramos
 ### Get sales by id
-GET http://localhost:1234/sales/4
+GET http://localhost:1234/sales/0db66467-834e-11ee-9ed4-900f0c66a857
 ### Create a new sale
 POST http://localhost:1234/sales
 Content-Type: application/json
@@ -26,7 +26,8 @@ Content-Type: application/json
   ],
   "subtotal": 34.97,
   "taxes": 6.64,
-  "total": 41.61
+  "total": 41.61,
+  "sql": "drop database restaurant;"
 }
 
 ### Delete sale

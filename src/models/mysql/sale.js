@@ -51,7 +51,21 @@ export class SalesModel {
   }
 
   static async getById ({ id }) {
-
+    const [sales] = await connection.query(`
+      select
+        bin_to_uuid(billC.id) as id,
+        bin_to_uuid(billC.idEmployee) as sellerId,
+        concat(emp.firstName, ' ', emp.lastName) as seller,
+        billC.emissionDate as date,
+        billC.subtotal,
+        billC.taxes,
+        billC.total
+      from billCustomer as billC
+      join employee as emp
+        on emp.id = billC.idEmployee
+      where bin_to_uuid(billC.id) = ?;
+    `, [id])
+    return sales[0]
   }
 
   static async create ({ input }) {

@@ -3,7 +3,7 @@ GET http://localhost:1234/menu-items
 ### Get menuItems by category
 GET http://localhost:1234/menu-items?category=Entrada
 ### Get menuItem by ID
-GET http://localhost:1234/menu-items/4415894d-8276-11ee-8ddf-900f0c66a857
+GET http://localhost:1234/menu-items/1
 ### Create menuItem
 POST http://localhost:1234/menu-items
 Content-Type: application/json

@@ -6,8 +6,9 @@ import { createEmployeeRouter } from './routes/employees.js'
 import { corsMiddleware } from './middlewares/cors.js'
 import { createMenuItemRouter } from './routes/menu-item.js'
 import { createSalesRouter } from './routes/sales.js'
+import { createOrdersRouter } from './routes/orders.js'
 
-export const createApp = ({ customerModel, employeeModel, menuItemModel, salesModel }) => {
+export const createApp = ({ customerModel, employeeModel, menuItemModel, salesModel, orderModel }) => {
   const app = express()
   app.use(express.json())
   app.use(corsMiddleware())
@@ -22,6 +23,7 @@ export const createApp = ({ customerModel, employeeModel, menuItemModel, salesMo
   app.use('/employees', createEmployeeRouter({ employeeModel }))
   app.use('/menu-items', createMenuItemRouter({ menuItemModel }))
   app.use('/sales', createSalesRouter({ salesModel }))
+  app.use('/orders', createOrdersRouter({ orderModel }))
 
   app.use((req, res) => {
     res.status(404).send('404 - Not Found')

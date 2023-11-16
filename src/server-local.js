@@ -2,11 +2,13 @@ import { createApp } from './index.js'
 import { CustomerModel } from './models/local-file-system/customer.js'
 import { EmployeeModel } from './models/local-file-system/employee.js'
 import { MenuItemModel } from './models/local-file-system/menu-item.js'
+import { OrderModel } from './models/local-file-system/order.js'
 import { SalesModel } from './models/local-file-system/sale.js'
 
 createApp({
   customerModel: CustomerModel,
   employeeModel: EmployeeModel,
   menuItemModel: MenuItemModel,
-  salesModel: SalesModel
+  salesModel: SalesModel,
+  orderModel: OrderModel
 })

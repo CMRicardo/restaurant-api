@@ -1,8 +1,8 @@
 import { connection } from '../../utils/db-connection.js'
 
 export class SalesModel {
-  static async #getBills () {
-    const [bills] = await connection.query(`
+  static async #getBills ({ sellerId, initialDate, endDate } = {}) {
+    const query = `
       select
         bin_to_uuid(billC.id) as id,
         bin_to_uuid(billC.idEmployee) as sellerId,
@@ -13,13 +13,28 @@ export class SalesModel {
         billC.total
       from billCustomer as billC
       join employee as emp
-        on emp.id = billC.idEmployee;  
-    `)
+        on emp.id = billC.idEmployee
+      where
+      ${sellerId
+          ? 'billC.idEmployee = uuid_to_bin(?)'
+          : 'true'
+        }
+      ${initialDate && endDate
+          ? 'and billC.emissionDate between ? and ?'
+          : 'and true'
+      }
+      ;
+    `
+
+    const paramsArray = [sellerId, initialDate, endDate]
+    if (!sellerId) paramsArray.splice(0, 1)
+
+    const [bills] = await connection.query(query, paramsArray)
     return bills
   }
 
-  static async getAll ({ seller }) {
-    const bills = await this.#getBills()
+  static async getAll ({ sellerId, initialDate, endDate } = {}) {
+    const bills = await this.#getBills({ sellerId, initialDate, endDate })
 
     const sales = await Promise.all(bills.map(async bill => {
       const [items] = await connection.query(`

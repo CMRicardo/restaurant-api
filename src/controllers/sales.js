@@ -6,8 +6,8 @@ export class SalesController {
   }
 
   getAll = async (req, res) => {
-    const { seller } = req.query
-    const sales = await this.salesModel.getAll({ seller })
+    const { sellerId, initialDate, endDate } = req.query
+    const sales = await this.salesModel.getAll({ sellerId, initialDate, endDate })
     return res.json(sales)
   }
 

@@ -1,3 +1,4 @@
+import { createUUID } from '../../utils/createUUID.js'
 import { connection } from '../../utils/db-connection.js'
 
 export class CustomerModel {
@@ -57,8 +58,7 @@ export class CustomerModel {
       address
     } = input
 
-    const [uuidResult] = await connection.query('SELECT UUID() uuid;')
-    const [{ uuid }] = uuidResult
+    const uuid = await createUUID()
 
     try {
       await connection.query(`

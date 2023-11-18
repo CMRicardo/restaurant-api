@@ -13,24 +13,24 @@ POST http://localhost:1234/sales
 Content-Type: application/json
 
 {
-  "seller": "Michael Brown",
-  "sellerId": "5",
+  "seller": "Alice Smith",
+  "sellerId": "d313cf29-834b-11ee-9ed4-900f0c66a857",
   "date": "2023-11-14T23:39:08.498Z" ,
   "items": [
     {
-      "name": "Steak",
-      "price": 19.99,
+      "name": "Tacos",
+      "price": 10.99,
       "quantity": 1
     },
     {
-      "name": "Baked Potato",
-      "price": 7.49,
+      "name": "Tiramisu",
+      "price": 6.99,
       "quantity": 2
     }
   ],
-  "subtotal": 34.97,
-  "taxes": 6.64,
-  "total": 41.61,
+  "subtotal": 24.97,
+  "taxes": 3.75,
+  "total": 28.72,
   "sql": "drop database restaurant;"
 }
 

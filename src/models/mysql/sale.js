@@ -1,3 +1,4 @@
+import { createUUID } from '../../utils/createUUID.js'
 import { connection } from '../../utils/db-connection.js'
 
 export class SalesModel {
@@ -77,7 +78,41 @@ export class SalesModel {
   }
 
   static async create ({ input }) {
+    const uuid = await createUUID()
+    const newSale = {
+      id: uuid,
+      ...input
+    }
+    const {
+      sellerId,
+      date,
+      subtotal,
+      total,
+      taxes,
+      items
+    } = newSale
 
+    await connection.query(`
+      insert into billCustomer (id, idEmployee, subtotal, taxes, total, emissionDate)
+      values (
+        (uuid_to_bin(?)),
+        (uuid_to_bin(?)),
+        ?, ?, ?, STR_TO_DATE(?, '%Y-%m-%d %H:%i:%s.%f')
+      );
+    `, [uuid, sellerId, subtotal, taxes, total, date])
+    await Promise.all(items.map(async (item) => {
+      return await connection.query(`
+        insert into billCustomerDetails (idBill, idMenuItem, quantity, subtotal)
+        values (
+          uuid_to_bin(?),
+          (uuid_to_bin((select bin_to_uuid(id) from menuItem where name = ?))),
+          ?,
+          ?
+        );
+        `, [uuid, item.name, item.quantity, Number(item.quantity) * Number(item.price)])
+    }))
+
+    return newSale
   }
 
   static async delete ({ id }) {

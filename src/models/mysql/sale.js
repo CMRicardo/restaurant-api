@@ -34,11 +34,8 @@ export class SalesModel {
     return bills
   }
 
-  static async getAll ({ sellerId, initialDate, endDate } = {}) {
-    const bills = await this.#getBills({ sellerId, initialDate, endDate })
-
-    const sales = await Promise.all(bills.map(async bill => {
-      const [items] = await connection.query(`
+  static async #getItems ({ id }) {
+    const [items] = await connection.query(`
         select
           mi.name,
           mi.price,
@@ -49,8 +46,15 @@ export class SalesModel {
         join billCustomer as billC
           on billC.id = billD.idBill
         where bin_to_uuid(billC.id) = ?;
-    `, [bill.id])
+    `, [id])
+    return items
+  }
 
+  static async getAll ({ sellerId, initialDate, endDate } = {}) {
+    const bills = await this.#getBills({ sellerId, initialDate, endDate })
+
+    const sales = await Promise.all(bills.map(async bill => {
+      const items = await this.#getItems({ id: bill.id })
       return {
         ...bill,
         items
@@ -74,7 +78,13 @@ export class SalesModel {
         on emp.id = billC.idEmployee
       where bin_to_uuid(billC.id) = ?;
     `, [id])
-    return sales[0]
+    const sale = sales[0]
+    const items = await this.#getItems({ id: sale.id })
+
+    return {
+      ...sale,
+      items
+    }
   }
 
   static async create ({ input }) {
@@ -100,6 +110,7 @@ export class SalesModel {
         ?, ?, ?, STR_TO_DATE(?, '%Y-%m-%d %H:%i:%s.%f')
       );
     `, [uuid, sellerId, subtotal, taxes, total, date])
+
     await Promise.all(items.map(async (item) => {
       return await connection.query(`
         insert into billCustomerDetails (idBill, idMenuItem, quantity, subtotal)
@@ -116,6 +127,17 @@ export class SalesModel {
   }
 
   static async delete ({ id }) {
+    try {
+      await connection.query(`
+        delete from billCustomerDetails where bin_to_uuid(idBill) = ?;
+      `, [id])
+      await connection.query(`
+        delete from billCustomer where bin_to_uuid(id) = ?;
+      `, [id])
 
+      return true
+    } catch (error) {
+      return false
+    }
   }
 }

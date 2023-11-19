@@ -14,7 +14,7 @@ Content-Type: application/json
 
 {
   "seller": "Alice Smith",
-  "sellerId": "d313cf29-834b-11ee-9ed4-900f0c66a857",
+  "sellerId": "9cfeab80-834b-11ee-b53e-eaf15ba8dff1",
   "date": "2023-11-14T23:39:08.498Z" ,
   "items": [
     {

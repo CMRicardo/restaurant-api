@@ -31,7 +31,7 @@ export class SalesModel {
     if (!sellerId) paramsArray.splice(0, 1)
 
     const [bills] = await connection.query(query, paramsArray)
-    return bills
+    return bills.length > 0 ? bills : []
   }
 
   static async #getItems ({ id }) {

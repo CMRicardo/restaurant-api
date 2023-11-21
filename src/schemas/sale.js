@@ -3,6 +3,7 @@ import { z } from 'zod'
 const saleSchema = z.object({
   seller: z.string(),
   sellerId: z.string(),
+  currentStatus: z.string().min(5),
   date: z.coerce.date(),
   items: z.array(z.object({
     name: z.string(),

@@ -7,7 +7,8 @@ GET http://localhost:1234/sales?initialDate=2023-11-15&endDate=2023-11-30
 ### Get sales by id and dates
 GET http://localhost:1234/sales?sellerId=87b39f15-81a2-11ee-be2b-900f0c66a857&initialDate=2023-11-1&endDate=2023-11-30
 ### Get sales by id
-GET http://localhost:1234/sales/88294e7d-8361-11ee-9ed4-900f0c66a857
+GET http://localhost:1234/sales/15d8631c-8704-11ee-b53e-eaf15ba8dff1
+
 ### Create a new sale
 POST http://localhost:1234/sales
 Content-Type: application/json

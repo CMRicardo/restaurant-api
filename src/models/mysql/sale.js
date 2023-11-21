@@ -6,6 +6,7 @@ export class SalesModel {
     const query = `
       select
         bin_to_uuid(billC.id) as id,
+        cs.name as 'status',
         bin_to_uuid(billC.idEmployee) as sellerId,
         concat(emp.firstName, ' ', emp.lastName) as seller,
         billC.emissionDate as date,
@@ -15,6 +16,8 @@ export class SalesModel {
       from billCustomer as billC
       join employee as emp
         on emp.id = billC.idEmployee
+      join currentStatus as cs
+        on billC.currentStatus = cs.id
       where
       ${sellerId
           ? 'billC.idEmployee = uuid_to_bin(?)'
@@ -67,6 +70,7 @@ export class SalesModel {
     const [sales] = await connection.query(`
       select
         bin_to_uuid(billC.id) as id,
+        cs.name as 'status',
         bin_to_uuid(billC.idEmployee) as sellerId,
         concat(emp.firstName, ' ', emp.lastName) as seller,
         billC.emissionDate as date,
@@ -76,6 +80,8 @@ export class SalesModel {
       from billCustomer as billC
       join employee as emp
         on emp.id = billC.idEmployee
+      join currentStatus as cs
+        on billC.currentStatus = cs.id
       where bin_to_uuid(billC.id) = ?;
     `, [id])
     const sale = sales[0]

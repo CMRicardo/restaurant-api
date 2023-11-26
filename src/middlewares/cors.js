@@ -2,7 +2,7 @@ import cors from 'cors'
 
 const ACCEPTED_ORIGINS = [
   'http://localhost:8080',
-  'http://litoral-restaurant.vercel.app',
+  'https://litoral-restaurant.vercel.app',
   'http://localhost:4200'
 ]
 

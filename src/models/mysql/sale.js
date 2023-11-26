@@ -100,6 +100,7 @@ export class SalesModel {
       ...input
     }
     const {
+      status,
       sellerId,
       date,
       subtotal,
@@ -109,13 +110,14 @@ export class SalesModel {
     } = newSale
 
     await connection.query(`
-      insert into billCustomer (id, idEmployee, subtotal, taxes, total, emissionDate)
+      insert into billCustomer (id, idEmployee, subtotal, taxes, total, emissionDate, currentStatus)
       values (
         (uuid_to_bin(?)),
         (uuid_to_bin(?)),
-        ?, ?, ?, STR_TO_DATE(?, '%Y-%m-%d %H:%i:%s.%f')
+        ?, ?, ?, STR_TO_DATE(?, '%Y-%m-%d %H:%i:%s.%f'),
+        (select id from currentStatus where name = ?)
       );
-    `, [uuid, sellerId, subtotal, taxes, total, date])
+    `, [uuid, sellerId, subtotal, taxes, total, date, status])
 
     await Promise.all(items.map(async (item) => {
       return await connection.query(`

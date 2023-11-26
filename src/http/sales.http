@@ -14,26 +14,26 @@ POST http://localhost:1234/sales
 Content-Type: application/json
 
 {
-  "seller": "Alice Smith",
-  "sellerId": "9cfeab80-834b-11ee-b53e-eaf15ba8dff1",
-  "date": "2023-11-14T23:39:08.498Z" ,
-  "items": [
-    {
-      "name": "Tacos",
-      "price": 10.99,
-      "quantity": 1
-    },
-    {
-      "name": "Tiramisu",
-      "price": 6.99,
-      "quantity": 2
-    }
-  ],
-  "subtotal": 24.97,
-  "taxes": 3.75,
-  "total": 28.72,
-  "sql": "drop database restaurant;"
-}
+    "seller": "Alice Smith",
+    "sellerId": "9cfeab80-834b-11ee-b53e-eaf15ba8dff1",
+    "date": "2023-07-12T19:45:30.123Z",
+    "status": "Pendiente",
+    "items": [
+      {
+        "name": "Nachos",
+        "price": 6.99,
+        "quantity": 2
+      },
+      {
+        "name": "Hamburguesa",
+        "price": 9.99,
+        "quantity": 1
+      }
+    ],
+    "subtotal": 23.97,
+    "taxes": 3.59,
+    "total": 27.56
+  }
 
 ### Delete sale
 DELETE http://localhost:1234/sales/8eab2a85-85bc-11ee-a692-900f0c66a857

@@ -13,6 +13,7 @@ export class EmployeeModel {
         idNumber,
         phoneNumber,
         email,
+        password,
         profilePictureUrl,
         address
       from employee as em
@@ -31,6 +32,7 @@ export class EmployeeModel {
         idNumber,
         phoneNumber,
         email,
+        password,
         profilePictureUrl,
         address
       from employee as em
@@ -50,6 +52,7 @@ export class EmployeeModel {
         idNumber,
         phoneNumber,
         email,
+        password,
         profilePictureUrl,
         address
       from employee as em
@@ -67,6 +70,7 @@ export class EmployeeModel {
       idNumber,
       phoneNumber,
       email,
+      password,
       profilePictureUrl,
       address
     } = input
@@ -77,13 +81,13 @@ export class EmployeeModel {
     try {
       await connection.query(`
         insert into employee
-          (id, employeeType, firstName, secondName, lastName, idNumber, phoneNumber, email, address, profilePictureUrl)
+          (id, employeeType, firstName, secondName, lastName, idNumber, phoneNumber, email, address, profilePictureUrl, password)
         values (
           (select UUID_TO_BIN(?)),
           (select id from employeeType where type = ?),
-          ?, ?, ?, ?, ?, ?, ?, ?
+          ?, ?, ?, ?, ?, ?, ?, ?, ?
       );
-      `, [uuid, employeeType, firstName, secondName, lastName, idNumber, phoneNumber, email, address, profilePictureUrl])
+      `, [uuid, employeeType, firstName, secondName, lastName, idNumber, phoneNumber, email, address, profilePictureUrl, password])
     } catch (error) {
       return false
     }
@@ -106,6 +110,7 @@ export class EmployeeModel {
       idNumber,
       phoneNumber,
       email,
+      password,
       profilePictureUrl,
       address
     } = updatedEmployee
@@ -121,9 +126,10 @@ export class EmployeeModel {
           phoneNumber = ?,
           email = ?,
           profilePictureUrl = ?,
-          address = ?
+          address = ?,
+          password = ?
         WHERE id = UUID_TO_BIN(?);
-      `, [employeeType, firstName, secondName, lastName, idNumber, phoneNumber, email, profilePictureUrl, address, id])
+      `, [employeeType, firstName, secondName, lastName, idNumber, phoneNumber, email, profilePictureUrl, address, id, password])
       return updatedEmployee
     } catch (error) {
       return false

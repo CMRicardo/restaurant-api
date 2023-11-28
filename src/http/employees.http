@@ -16,6 +16,7 @@ Content-Type: application/json
   "idNumber": "0801200203580",
   "phoneNumber": 12345678,
   "email": "emily@litoral.com",
+  "password": "admin123",
   "profilePictureUrl": "https://randomuser.me/api/portraits/women/81.jpg",
   "address": "San Pedro Sula"
 }

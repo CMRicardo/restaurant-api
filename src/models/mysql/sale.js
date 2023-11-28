@@ -148,4 +148,26 @@ export class SalesModel {
       return false
     }
   }
+
+  static async update ({ id, input }) {
+    const originalSale = await this.getById({ id })
+    const updatedSale = {
+      ...originalSale,
+      ...input
+    }
+    const {
+      status
+    } = updatedSale
+
+    try {
+      await connection.query(`
+        update billCustomer
+          set currentStatus = (select id from currentStatus where name = ?)
+        where id = uuid_to_bin(?);
+      `, [status, id])
+      return updatedSale
+    } catch (error) {
+      return false
+    }
+  }
 }

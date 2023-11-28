@@ -8,6 +8,7 @@ export const createSalesRouter = ({ salesModel }) => {
   salesRouter.get('/', salesController.getAll)
   salesRouter.get('/:id', salesController.getById)
   salesRouter.post('/', salesController.create)
+  salesRouter.patch('/:id', salesController.update)
   salesRouter.delete('/:id', salesController.delete)
 
   return salesRouter

@@ -37,3 +37,11 @@ Content-Type: application/json
 
 ### Delete sale
 DELETE http://localhost:1234/sales/8eab2a85-85bc-11ee-a692-900f0c66a857
+
+### Update status
+PATCH http://localhost:1234/sales/88294e7d-8361-11ee-9ed4-900f0c66a857
+Content-Type: application/json
+
+{
+  "status": "Reembolso"
+}

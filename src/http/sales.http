@@ -36,12 +36,12 @@ Content-Type: application/json
   }
 
 ### Delete sale
-DELETE http://localhost:1234/sales/8eab2a85-85bc-11ee-a692-900f0c66a857
+DELETE http://localhost:1234/sales/12aaf403-8c72-11ee-987f-d6d62d98a5a5
 
 ### Update status
-PATCH http://localhost:1234/sales/88294e7d-8361-11ee-9ed4-900f0c66a857
+PATCH http://localhost:1234/sales/12aaf403-8c72-11ee-987f-d6d62d98a5a5
 Content-Type: application/json
 
 {
-  "status": "Reembolso"
+  "status": "Pendiente"
 }

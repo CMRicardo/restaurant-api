@@ -3,7 +3,7 @@ GET http://localhost:1234/employees
 ### Get all employees by type
 GET http://localhost:1234/employees?type=vendedor
 ### Get employee by ID
-GET http://localhost:1234/employees/3c0550fc-81c3-11ee-b53e-eaf15ba8dff1
+GET http://localhost:1234/employees/b87069f3-904d-11ee-ac12-2ae56c2b4079
 ### Create employee
 POST http://localhost:1234/employees
 Content-Type: application/json
@@ -36,11 +36,11 @@ Content-Type: application/json
 }
 
 ### Update employee
-PATCH http://localhost:1234/employees/3c0550fc-81c3-11ee-b53e-eaf15ba8dff1
+PATCH http://localhost:1234/employees/b87069f3-904d-11ee-ac12-2ae56c2b4079
 Content-Type: application/json
 
 {
-  "employeeType": "Gerente"
+  "firstName": "Ricardo"
 }
 
 ### Delete employee

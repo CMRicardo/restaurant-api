@@ -129,7 +129,7 @@ export class EmployeeModel {
           address = ?,
           password = ?
         WHERE id = UUID_TO_BIN(?);
-      `, [employeeType, firstName, secondName, lastName, idNumber, phoneNumber, email, profilePictureUrl, address, id, password])
+      `, [employeeType, firstName, secondName, lastName, idNumber, phoneNumber, email, profilePictureUrl, address, password, id])
       return updatedEmployee
     } catch (error) {
       return false

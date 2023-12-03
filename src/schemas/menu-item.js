@@ -5,7 +5,7 @@ const menuItemSchema = z.object({
   name: z.string().min(3),
   description: z.string(),
   price: z.number().min(0.99).max(500),
-  imageUrl: z.string().url()
+  imageUrl: z.string()
 })
 
 export const validateMenuItem = (object) => {

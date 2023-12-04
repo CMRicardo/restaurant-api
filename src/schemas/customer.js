@@ -15,7 +15,7 @@ const customerSchema = z.object({
   phoneNumber: z.number({
     required_error: 'Phone number is required'
   }).int().min(1111_1111),
-  address: z.string().min(10)
+  address: z.string().min()
 })
 
 export const validateCustomer = (object) => {
